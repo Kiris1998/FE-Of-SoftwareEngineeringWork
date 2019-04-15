@@ -1,5 +1,5 @@
 export default {
-  'menu.welcome': 'Welcome',
+  'menu.function': 'Welcome',
   'menu.more-blocks': 'More Blocks',
 
   'menu.account.center': 'Account Center',

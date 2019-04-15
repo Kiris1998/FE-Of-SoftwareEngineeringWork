@@ -191,7 +191,7 @@ class BasicLayout extends React.PureComponent {
     );
     return (
       <React.Fragment>
-        <DocumentTitle title={this.getPageTitle(pathname, breadcrumbNameMap)}>
+        <DocumentTitle title="人脸识别系统">
           <ContainerQuery query={query}>
             {params => (
               <Context.Provider value={this.getContext()}>

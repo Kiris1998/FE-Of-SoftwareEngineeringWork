@@ -20,7 +20,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src"],
+  "include": [],
   "exclude": [
     "node_modules",
     "build",
@@ -30,6 +30,7 @@
     "jest",
     "src/setupTests.ts",
     "tslint:latest",
-    "tslint-config-prettier"
+    "tslint-config-prettier",
+    "./src"
   ]
 }

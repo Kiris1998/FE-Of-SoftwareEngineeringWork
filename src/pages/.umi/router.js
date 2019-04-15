@@ -20,7 +20,7 @@ let routes = [
         "path": "/user",
         "component": _dvaDynamic({
   
-  component: () => import('../Welcome'),
+  component: () => import('../function'),
   LoadingComponent: require('/Users/kiris/Desktop/workspace/FE-Of-SoftwareEngineeringWork/src/components/PageLoading/index').default,
 }),
         "exact": true
@@ -40,24 +40,29 @@ let routes = [
     "routes": [
       {
         "path": "/",
-        "redirect": "/welcome",
+        "redirect": "/function",
         "exact": true
       },
       {
-        "path": "/welcome",
-        "name": "welcome",
+        "path": "/function",
+        "name": "function",
         "icon": "smile",
         "component": _dvaDynamic({
   
-  component: () => import('../Welcome'),
+  component: () => import('../Function'),
   LoadingComponent: require('/Users/kiris/Desktop/workspace/FE-Of-SoftwareEngineeringWork/src/components/PageLoading/index').default,
 }),
         "exact": true
       },
       {
-        "path": "https://github.com/umijs/umi-blocks/tree/master/ant-design-pro",
-        "name": "more-blocks",
+        "path": "/picture",
+        "name": "picture",
         "icon": "block",
+        "component": _dvaDynamic({
+  
+  component: () => import('../Picture'),
+  LoadingComponent: require('/Users/kiris/Desktop/workspace/FE-Of-SoftwareEngineeringWork/src/components/PageLoading/index').default,
+}),
         "exact": true
       },
       {

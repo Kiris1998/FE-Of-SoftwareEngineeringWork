@@ -44,24 +44,25 @@ export default {
     {
       path: '/user',
       component: '../layouts/UserLayout',
-      routes: [{ path: '/user', component: './Welcome' }],
+      routes: [{ path: '/user', component: './function' }],
     },
     {
       path: '/',
       component: '../layouts/BasicLayout',
       routes: [
-        { path: '/', redirect: '/welcome' },
+        { path: '/', redirect: '/function' },
         // dashboard
         {
-          path: '/welcome',
-          name: 'welcome',
+          path: '/function',
+          name: 'function',
           icon: 'smile',
-          component: './Welcome',
+          component: './Function',
         },
         {
-          path: 'https://github.com/umijs/umi-blocks/tree/master/ant-design-pro',
-          name: 'more-blocks',
+          path: '/picture',
+          name: 'picture',
           icon: 'block',
+          component: './Picture'
         },
       ],
     },

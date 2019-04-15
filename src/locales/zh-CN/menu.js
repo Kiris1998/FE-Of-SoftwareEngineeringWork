@@ -1,6 +1,6 @@
 export default {
-  'menu.welcome': '欢迎',
-  'menu.more-blocks': '更多区块',
+  'menu.function': '功能模块',
+  'menu.picture': '历史图片',
 
   'menu.account.center': '个人中心',
   'menu.account.settings': '个人设置',
