@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Menu, Icon , Alert , Upload , Button } from 'antd';
+import { Menu, Icon , Alert , Upload } from 'antd';
 import './function.less'
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
