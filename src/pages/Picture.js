@@ -1,14 +1,51 @@
 import React, { PureComponent } from 'react';
 import { Card } from 'antd';
 import Masonry from 'react-masonry-with-css';
+import axios from 'axios'
 const { Meta } = Card;
 
+const types = {
+  "sex": '性别识别',
+  "emotion": '表情识别',
+  "hat": '头部特效合成',
+  "repair": '图片修复'
+}
+
 export default class GlobalHeader extends PureComponent {
+  state = {
+    info: ''
+  }
+  componentDidMount(){
+    axios.get('http://39.106.74.239/pictures').then(res => {
+      let pics = []
+      res.data.forEach(item => {
+        let url = item.address.slice(1)
+        url = `http://39.106.74.239${url}`
+        let kind = types[item.name]
+        let str = 
+        <Card
+          hoverable
+          style={{ width: 280 ,margin: 10}}
+          cover={<img src={url} />}
+        >
+          <Meta
+            title={kind}
+            description="某年某日某天"
+          />
+        </Card>
+        
+        pics.push(str)
+      })
+      this.setState({
+        pics: pics
+      })
+    })
+  }
   render() {
     return (
       <div style={{marginTop: '10px',paddingRight: '20px'}}>
         <Masonry width='280px' gap="5px">
-            <Card
+            {/* <Card
               hoverable
               style={{ width: 280 ,margin: 10}}
               cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -17,67 +54,8 @@ export default class GlobalHeader extends PureComponent {
                 title="人脸识别/表情识别/特效处理"
                 description="某年某日某天"
               />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 280 ,margin: 10}}
-              cover={<img alt="example" src="http://img4q.duitang.com/uploads/item/201303/15/20130315223944_EvRW3.thumb.700_0.jpeg" />}
-            >
-              <Meta
-                title="人脸识别/表情识别/特效处理"
-                description="某年某日某天"
-              />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 280 ,margin: 10}}
-              cover={<img alt="example" src="http://b4-q.mafengwo.net/s11/M00/A8/91/wKgBEFsiNPSAEPDPADClLyE6Q4086.jpeg" />}
-            >
-              <Meta
-                title="人脸识别/表情识别/特效处理"
-                description="某年某日某天"
-              />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 280 ,margin: 10}}
-              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-            >
-              <Meta
-                title="人脸识别/表情识别/特效处理"
-                description="某年某日某天"
-              />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 280 ,margin: 10}}
-              cover={<img alt="example" src="http://img.mp.itc.cn/upload/20170718/25f19cc037674477910366b445b33a1f_th.jpg" />}
-            >
-              <Meta
-                title="人脸识别/表情识别/特效处理"
-                description="某年某日某天"
-              />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 280 ,margin: 10}}
-              cover={<img alt="example" src="http://i0.hdslb.com/bfs/article/87caf1f969df02f46c8a3df21645852b6802c34c.jpg" />}
-            >
-              <Meta
-                title="人脸识别/表情识别/特效处理"
-                description="某年某日某天"
-              />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 280 ,margin: 10}}
-              cover={<img alt="example" src="http://zx.youdao.com/zx/wp-content/uploads/2015/09/15.28.jpg" />}
-            >
-              <Meta
-                title="人脸识别/表情识别/特效处理"
-                description="某年某日某天"
-              />
-            </Card>
+            </Card> */}
+            {this.state.pics}
         </Masonry>
       </div>
     );
